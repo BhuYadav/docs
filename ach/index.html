@@ -476,12 +476,18 @@
     Connecting to Moov ACH
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#language-examples" title="language examples" class="md-nav__link">
-    language examples
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ach-admin-ports" title="ACH Admin Ports" class="md-nav__link">
+    ACH Admin Ports
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -944,12 +950,18 @@
     Connecting to Moov ACH
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#language-examples" title="language examples" class="md-nav__link">
-    language examples
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ach-admin-ports" title="ACH Admin Ports" class="md-nav__link">
+    ACH Admin Ports
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -974,19 +986,21 @@
                 
                 <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
 <p><!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/moov-io/ach" data-size="large" data-show-count="true" aria-label="Star moov-io/ach on GitHub">moov-io/ach</a></p>
-<p>Moov ACH implements a low level Automated Clearing House (ACH) interface for parsing, creating, validating, and merging ACH files. Moov ACH exposes an HTTP API for REST based interaction. Any language which can use HTTP and JSON can leverage the ACH Server. The API's endpoints expose both text and JSON to easily ingest or export either format. </p>
+<a class="github-button" href="https://github.com/moov-io/ach" data-size="large" data-show-count="true" aria-label="Star moov-io/ach on GitHub">moov-io/ach</a>
+<a href="https://godoc.org/github.com/moov-io/ach"><img src="https://godoc.org/github.com/moov-io/ach?status.svg" /></a>
+<a href="https://raw.githubusercontent.com/moov-io/ach/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache2-blue.svg" /></a></p>
+<p>Moov ACH implements a low level Automated Clearing House (ACH) interface for parsing, creating, validating, and merging ACH files. Moov ACH exposes an HTTP API for REST based interaction. Any language which can use HTTP and JSON can leverage the ACH Server. The API's endpoints expose both text and JSON to easily ingest or export either format.</p>
 <h2 id="running-moov-ach-server">Running Moov ACH Server<a class="headerlink" href="#running-moov-ach-server" title="Permanent link">&para;</a></h2>
 <p>Moov ACH can be deployed in multiple scenarios.</p>
 <ul>
-<li>Binary Distributions are released with every versioned release. Frequently added to the VM/AMI build script for the application needing Moov ACH.</li>
-<li>Our hosted <a href="https://api.moov.io">api.moov.io</a> is updated with every versioned release. Our Kubernetes example is what Moov utilizes in our production environment. </li>
-<li>A Docker container is built and added to Docker Hub with every versioned released.</li>
+<li><a href="#binary-distribution">Binary Distributions</a> are released with every versioned release. Frequently added to the VM/AMI build script for the application needing Moov ACH.</li>
+<li>A <a href="#docker-container">Docker container</a> is built and added to Docker Hub with every versioned released.</li>
+<li>Our hosted <a href="https://api.moov.io">api.moov.io</a> is updated with every versioned release. Our Kubernetes example is what Moov utilizes in our production environment.</li>
 </ul>
 <h3 id="binary-distribution">Binary Distribution<a class="headerlink" href="#binary-distribution" title="Permanent link">&para;</a></h3>
 <p>Download the <a href="https://github.com/moov-io/ach/releases">latest Moov ACH server release</a> for your operating system and run it from a terminal.</p>
 <div class="codehilite"><pre><span></span>host:~ $ <span class="nb">cd</span> ~/Downloads/
-host:Downloads $ ./ach-darwin-amd64 
+host:Downloads $ ./ach-darwin-amd64
 <span class="nv">ts</span><span class="o">=</span><span class="m">2019</span>-06-20T23:23:44.870717Z <span class="nv">caller</span><span class="o">=</span>main.go:75 <span class="nv">startup</span><span class="o">=</span><span class="s2">&quot;Starting ach server version v1.0.2&quot;</span>
 <span class="nv">ts</span><span class="o">=</span><span class="m">2019</span>-06-20T23:23:44.871623Z <span class="nv">caller</span><span class="o">=</span>main.go:135 <span class="nv">transport</span><span class="o">=</span>HTTP <span class="nv">addr</span><span class="o">=</span>:8080
 <span class="nv">ts</span><span class="o">=</span><span class="m">2019</span>-06-20T23:23:44.871692Z <span class="nv">caller</span><span class="o">=</span>main.go:125 <span class="nv">admin</span><span class="o">=</span><span class="s2">&quot;listening on :9090&quot;</span>
@@ -997,7 +1011,7 @@ host:Downloads $ ./ach-darwin-amd64
 <p>Moov ACH is dependent on Docker being properly installed and running on your machine. Ensure that Docker is running. If your Docker client has issues connecting to the service review the <a href="https://docs.docker.com/get-started/">Docker getting started guide</a> if you have any issues.</p>
 <div class="codehilite"><pre><span></span>host:~ $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-host:~ $ 
+host:~ $
 </pre></div>
 
 <p>Execute the Docker run command</p>
@@ -1107,15 +1121,16 @@ Next <a href="#connecting-to-moov-ach">Connect to Moov ACH</a></p>
 <h2 id="connecting-to-moov-ach">Connecting to Moov ACH<a class="headerlink" href="#connecting-to-moov-ach" title="Permanent link">&para;</a></h2>
 <p>The Moov ACH service will be running on port <code>8080</code> (with an admin port on <code>9090</code>).</p>
 <p>Confirm that the service is running by issuing the following command or simply visiting the url in your browser <a href="http://localhost:8080/ping">localhost:8080/ping</a></p>
-<p>```sh
-$ curl <a href="http://localhost:8080/ping">http://localhost:8080/ping</a>
-PONG</p>
-<p>$ curl <a href="http://localhost:8080/files">http://localhost:8080/files</a>
-{"files":[],"error":null}</p>
+<div class="codehilite"><pre><span></span>$ curl http://localhost:8080/ping
+PONG
+
+$ curl http://localhost:8080/files
+<span class="o">{</span><span class="s2">&quot;files&quot;</span>:<span class="o">[]</span>,<span class="s2">&quot;error&quot;</span>:null<span class="o">}</span>
+</pre></div>
+
 <p>You can also send <a href="https://github.com/moov-io/ach/blob/master/test/testdata/ppd-valid.json">an example PPD ACH file we have</a> to any ACH service or read through HTTP examples in <a href="https://github.com/moov-io/ruby-ach-demo">Ruby</a> and <a href="https://github.com/moov-io/ach/blob/master/examples/http/main.go">Go</a>.</p>
-<h2 id="language-examples">language examples<a class="headerlink" href="#language-examples" title="Permanent link">&para;</a></h2>
-<p>! NOT SURE WHERE THIS GOES !</p>
-<p>We offer examples of using the HTTP interface in <a href="https://github.com/moov-io/ach/blob/master/examples/http/main.go">Go</a> and <a href="https://github.com/moov-io/ruby-ach-demo/blob/master/main.rb">Ruby</a>.</p>
+<h3 id="ach-admin-ports">ACH Admin Ports<a class="headerlink" href="#ach-admin-ports" title="Permanent link">&para;</a></h3>
+<p>The port <code>9090</code> is bound by ACH for our admin service. This HTTP server has endpoints for Prometheus metrics (<code>GET /metrics</code>), readiness (<code>GET /ready</code>) and liveness checks (<code>GET /live</code>).</p>
                 
                   
                 
