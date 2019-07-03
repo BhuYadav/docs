@@ -882,6 +882,33 @@
     Setup SFTP
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql" title="MySQL" class="md-nav__link">
+    MySQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sqlite" title="SQLite" class="md-nav__link">
+    SQLite
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-sftp-configuration" title="Verify SFTP configuration" class="md-nav__link">
+    Verify SFTP configuration
+  </a>
+  
 </li>
       
       
@@ -971,6 +998,33 @@
     Setup SFTP
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql" title="MySQL" class="md-nav__link">
+    MySQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sqlite" title="SQLite" class="md-nav__link">
+    SQLite
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-sftp-configuration" title="Verify SFTP configuration" class="md-nav__link">
+    Verify SFTP configuration
+  </a>
+  
 </li>
       
       
@@ -1045,8 +1099,21 @@ $ ./apitest -help
 <li>Then you can <a href="https://api.moov.io/#operation/addTransfer">create a transaction</a> between these two FIs</li>
 </ol>
 <h2 id="setup-sftp">Setup SFTP<a class="headerlink" href="#setup-sftp" title="Permanent link">&para;</a></h2>
-<p>PayGate currently requires the SFTP configuration to be manually setup in the database. <a href="https://github.com/moov-io/paygate/blob/master/docs/ach.md#configuration">See here</a> for more information.</p>
-<p>If using the Docker Compose script above, you need to mount the <code>/data</code> volume of the <code>paygate</code> section in <code>docker-compose.yml</code> file like so:
+<p>PayGate currently requires the SFTP configuration to be manually setup in the database. <a href="https://github.com/moov-io/paygate/blob/master/docs/ach.md#sftp-uploads-of-merged-ach-files">See here</a> for more information.</p>
+<h3 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h3>
+<p>MySQL is a database which applications or developers connect to over the network. This means to configure paygate's SFTP and file upload configuration a developer needs to connect to the database.</p>
+<div class="codehilite"><pre><span></span># Connect using host, username and password for your setup
+$ mysql -h localhost:3306 -u paygate
+
+&gt; INSERT INTO sftp_configs (routing_number, hostname, username, password) VALUES (&#39;000000000&#39;, &#39;localhost:22&#39;, &#39;myusername&#39;, &#39;mypassword&#39;);
+
+&gt; INSERT INTO cutoff_times (routing_number, cutoff, location) VALUES (&#39;000000000&#39;, &#39;1700&#39;, &#39;America/New_York&#39;);
+
+&gt; INSERT INTO file_transfer_configs (routing_number, inbound_path, outbound_path, return_path) VALUES (&#39;000000000&#39;, &#39;/inbound&#39;, &#39;/outbound&#39;, &#39;/returns&#39;);
+</pre></div>
+
+<h3 id="sqlite">SQLite<a class="headerlink" href="#sqlite" title="Permanent link">&para;</a></h3>
+<p>If using the Docker Compose and sqlite (<code>DATABASE_TYPE=sqlite</code>) script above, you need to mount the <code>/data</code> volume of the <code>paygate</code> section in <code>docker-compose.yml</code> file like so:
 <div class="codehilite"><pre><span></span>  paygate:
     image: moov/paygate:v0.5.0-dev
     ports:
@@ -1070,7 +1137,7 @@ $ ./apitest -help
 This will attach the <code>/data</code> volume within the image to the same directory in which the <code>docker-compose.yml</code> file resides.</p>
 <p>To setup SFTP, run the following commands on the now exposed <code>paygate.db</code> file, changing the dummy string values below:
 <div class="codehilite"><pre><span></span># Setup credentials for sqlite3
-$ sqlite3 paygate.db &quot;INSERT INTO sftp_configs (routing_number, hostname, username, password) VALUES (&#39;000000000&#39;, &#39;sftp://change.me//folder&#39;, &#39;myusername&#39;, &#39;mypassword&#39;);&quot;
+$ sqlite3 paygate.db &quot;INSERT INTO sftp_configs (routing_number, hostname, username, password) VALUES (&#39;000000000&#39;, &#39;localhost:22&#39;, &#39;myusername&#39;, &#39;mypassword&#39;);&quot;
 
 # Setup cutoff times
 $ sqlite3 paygate.db &quot;INSERT INTO cutoff_times (routing_number, cutoff, location) VALUES (&#39;000000000&#39;, &#39;1700&#39;, &#39;America/New_York&#39;);&quot;
@@ -1079,8 +1146,34 @@ $ sqlite3 paygate.db &quot;INSERT INTO cutoff_times (routing_number, cutoff, loc
 $ sqlite3 paygate.db &quot;INSERT INTO file_transfer_configs (routing_number, inbound_path, outbound_path, return_path) VALUES (&#39;000000000&#39;, &#39;/inbound&#39;, &#39;/outbound&#39;, &#39;/returns&#39;);&quot;
 </pre></div>
 The command may need to be ran with elevated privileges, using <code>sudo</code> or another method. The database will also need to be writable.</p>
-<p>Recently an admin interface to check these values was setup (default on port <code>:9092</code>), but require PayGate to be running from the latest codebase (and not the docker image above).</p>
-<div class="codehilite"><pre><span></span>curl -X GET http://localhost:9092/configs/uploads -H &#39;x-user-id: username&#39; --verbose
+<h2 id="verify-sftp-configuration">Verify SFTP configuration<a class="headerlink" href="#verify-sftp-configuration" title="Permanent link">&para;</a></h2>
+<p>Paygaet's admin HTTP interface offers endpoints to check these values were setup (default on port <code>:9092</code>).</p>
+<div class="codehilite"><pre><span></span>curl -s -X GET http://localhost:9092/configs/uploads | jq .
+{
+  &quot;cutoffTimes&quot;: [
+    {
+      &quot;RoutingNumber&quot;: &quot;121042882&quot;,
+      &quot;Cutoff&quot;: 1700,
+      &quot;Location&quot;: &quot;America/New_York&quot;
+    }
+  ],
+  &quot;sftpConfigs&quot;: [
+    {
+      &quot;RoutingNumber&quot;: &quot;121042882&quot;,
+      &quot;Hostname&quot;: &quot;localhost:2121&quot;,
+      &quot;Username&quot;: &quot;admin&quot;,
+      &quot;Password&quot;: &quot;1****6&quot;
+    }
+  ],
+  &quot;fileTransferConfigs&quot;: [
+    {
+      &quot;RoutingNumber&quot;: &quot;121042882&quot;,
+      &quot;InboundPath&quot;: &quot;inbound/&quot;,
+      &quot;OutboundPath&quot;: &quot;outbound/&quot;,
+      &quot;ReturnPath&quot;: &quot;returned/&quot;
+    }
+  ]
+}
 </pre></div>
                 
                   
