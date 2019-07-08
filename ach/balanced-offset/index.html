@@ -13,7 +13,7 @@
         <meta name="description" content="Open Source Financial Technology Micro Services">
       
       
-        <link rel="canonical" href="https://docs.moov.io/wire/DateMMDD/">
+        <link rel="canonical" href="https://docs.moov.io/ach/balanced-offset/">
       
       
       
@@ -40,7 +40,7 @@
     
     
       
-        <title>Date - Moov Documentation</title>
+        <title>Balanced Offset Records - Moov Documentation</title>
       
     
     
@@ -114,7 +114,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#datemmdd" tabindex="1" class="md-skip">
+      <a href="#setting-offset-metadata" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -140,7 +140,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Date
+                Balanced Offset Records
               
             </span>
           
@@ -232,7 +232,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../ach/" title="ACH" class="md-tabs__link">
+        <a href="../" title="ACH" class="md-tabs__link md-tabs__link--active">
           ACH
         </a>
       
@@ -297,7 +297,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../" title="WIRE" class="md-tabs__link md-tabs__link--active">
+        <a href="../../wire/" title="WIRE" class="md-tabs__link">
           WIRE
         </a>
       
@@ -388,10 +388,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       ACH
@@ -409,7 +411,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ach/" title="Getting Started" class="md-nav__link">
+    <a href="../" title="Getting Started" class="md-nav__link">
       Getting Started
     </a>
   </li>
@@ -419,10 +421,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
     
     <label class="md-nav__link" for="nav-2-2">
       Tutorials
@@ -438,11 +442,45 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../ach/balanced-offset/" title="Balanced Offset Records" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Balanced Offset Records
+      </label>
+    
+    <a href="./" title="Balanced Offset Records" class="md-nav__link md-nav__link--active">
       Balanced Offset Records
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-offset-metadata" title="Setting Offset Metadata" class="md-nav__link">
+    Setting Offset Metadata
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -452,7 +490,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ach/create-file/" title="Create an ACH FIle" class="md-nav__link">
+    <a href="../create-file/" title="Create an ACH FIle" class="md-nav__link">
       Create an ACH FIle
     </a>
   </li>
@@ -464,7 +502,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ach/merging-files/" title="Merging ACH Files" class="md-nav__link">
+    <a href="../merging-files/" title="Merging ACH Files" class="md-nav__link">
       Merging ACH Files
     </a>
   </li>
@@ -500,7 +538,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ach/intro/" title="Intro to ACH" class="md-nav__link">
+    <a href="../intro/" title="Intro to ACH" class="md-nav__link">
       Intro to ACH
     </a>
   </li>
@@ -512,7 +550,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ach/file-structure/" title="ACH File Structure" class="md-nav__link">
+    <a href="../file-structure/" title="ACH File Structure" class="md-nav__link">
       ACH File Structure
     </a>
   </li>
@@ -524,7 +562,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ach/sec-codes-table/" title="Picking an SEC Code" class="md-nav__link">
+    <a href="../sec-codes-table/" title="Picking an SEC Code" class="md-nav__link">
       Picking an SEC Code
     </a>
   </li>
@@ -724,12 +762,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       WIRE
@@ -747,7 +783,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../" title="Overview" class="md-nav__link">
+    <a href="../../wire/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -759,7 +795,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../fedWireMessage-Structure/" title="WIRE Fed Wire Message Structure" class="md-nav__link">
+    <a href="../../wire/fedWireMessage-Structure/" title="WIRE Fed Wire Message Structure" class="md-nav__link">
       WIRE Fed Wire Message Structure
     </a>
   </li>
@@ -769,49 +805,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Date
-      </label>
-    
-    <a href="./" title="Date" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../wire/DateMMDD/" title="Date" class="md-nav__link">
       Date
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#properties" title="Properties" class="md-nav__link">
-    Properties
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -821,7 +819,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../TimeHHMM/" title="Time" class="md-nav__link">
+    <a href="../../wire/TimeHHMM/" title="Time" class="md-nav__link">
       Time
     </a>
   </li>
@@ -833,7 +831,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../address/" title="Address" class="md-nav__link">
+    <a href="../../wire/address/" title="Address" class="md-nav__link">
       Address
     </a>
   </li>
@@ -845,7 +843,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../remittanceData/" title="Remittance Data" class="md-nav__link">
+    <a href="../../wire/remittanceData/" title="Remittance Data" class="md-nav__link">
       Remittance Data
     </a>
   </li>
@@ -870,15 +868,13 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#properties" title="Properties" class="md-nav__link">
-    Properties
+  <a href="#setting-offset-metadata" title="Setting Offset Metadata" class="md-nav__link">
+    Setting Offset Metadata
   </a>
   
 </li>
@@ -899,29 +895,33 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/moov-io/docs/edit/master/docs/wire/DateMMDD.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/moov-io/docs/edit/master/docs/ach/balanced-offset.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="datemmdd">DateMMDD<a class="headerlink" href="#datemmdd" title="Permanent link">&para;</a></h1>
-<h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Date</strong></td>
-<td><strong>string</strong></td>
-<td>Date  MMDD, based on the calendar date</td>
-<td>[optional]</td>
-</tr>
-</tbody>
-</table>
+                  <h1>Balanced Offset Records</h1>
+                
+                <p>ACH files can have "offset records" which are <a href="https://godoc.org/github.com/moov-io/ach#EntryDetail">EntryDetail</a> records that balance a file's debits and credits. This means if there are debits, there is a credit offset matching the sum of the debits. If there are credits, there is a debit offset matching the sum of the credits. They are mutually exclusive.</p>
+<p>Offset files are used to offset transactions from a single account inside of the ODFI. The Offset is the last record which settles the funds into a single ODFI account.</p>
+<p>Note: Balanced offset files (via <code>WithOffset</code>) are only in ACH v1.1.0 and later.</p>
+<h2 id="setting-offset-metadata">Setting Offset Metadata<a class="headerlink" href="#setting-offset-metadata" title="Permanent link">&para;</a></h2>
+<p>An ACH <a href="https://godoc.org/github.com/moov-io/ach#Batch">Batch</a> supports calling <a href="https://godoc.org/github.com/moov-io/ach#Batch.WithOffset">WithOffset</a> to set offset information such as routing number, account number, account type, and a description.</p>
+<div class="codehilite"><pre><span></span><span class="nx">bh</span> <span class="o">:=</span> <span class="nx">ach</span><span class="p">.</span><span class="nx">NewBatchHeader</span><span class="p">()</span>
+<span class="c1">// fill in the fields</span>
+
+<span class="nx">ed</span> <span class="o">:=</span> <span class="nx">ach</span><span class="p">.</span><span class="nx">NewEntryDetail</span><span class="p">()</span>
+<span class="c1">// fill in the fields</span>
+
+<span class="nx">batch</span> <span class="o">:=</span> <span class="nx">ach</span><span class="p">.</span><span class="nx">NewBatch</span><span class="p">(</span><span class="nx">bh</span><span class="p">)</span>
+<span class="nx">batch</span><span class="p">.</span><span class="nx">AddEntry</span><span class="p">(</span><span class="nx">ed</span><span class="p">)</span>
+<span class="nx">batch</span><span class="p">.</span><span class="nx">WithOffset</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">ach</span><span class="p">.</span><span class="nx">Offset</span><span class="p">{</span>
+    <span class="nx">RoutingNumber</span><span class="p">:</span> <span class="s">&quot;...&quot;</span><span class="p">,</span>
+    <span class="nx">AccountNumber</span><span class="p">:</span> <span class="s">&quot;...&quot;</span><span class="p">,</span>
+    <span class="nx">AccountType</span><span class="p">:</span> <span class="nx">OffsetSavings</span><span class="p">,</span>
+    <span class="nx">Description</span><span class="p">:</span> <span class="s">&quot;...&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="c1">// On each batch.Create() call the offset record will be re-tabulated</span>
+</pre></div>
                 
                   
                 
@@ -942,7 +942,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../fedWireMessage-Structure/" title="WIRE Fed Wire Message Structure" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../" title="Getting Started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -951,19 +951,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                WIRE Fed Wire Message Structure
+                Getting Started
               </span>
             </div>
           </a>
         
         
-          <a href="../TimeHHMM/" title="Time" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../create-file/" title="Create an ACH FIle" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Time
+                Create an ACH FIle
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
