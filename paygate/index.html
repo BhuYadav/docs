@@ -452,8 +452,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ach/create-file/" title="Create an ACH FIle" class="md-nav__link">
-      Create an ACH FIle
+    <a href="../ach/create-file/" title="Create an ACH File" class="md-nav__link">
+      Create an ACH File
     </a>
   </li>
 
@@ -466,6 +466,18 @@
   <li class="md-nav__item">
     <a href="../ach/merging-files/" title="Merging ACH Files" class="md-nav__link">
       Merging ACH Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ach/segment-file/" title="Segment ACH File" class="md-nav__link">
+      Segment ACH File
     </a>
   </li>
 
@@ -841,8 +853,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-sftp" title="Setup SFTP" class="md-nav__link">
-    Setup SFTP
+  <a href="#setup-ftp" title="Setup FTP" class="md-nav__link">
+    Setup FTP
   </a>
   
     <nav class="md-nav">
@@ -868,8 +880,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-sftp-configuration" title="Verify SFTP configuration" class="md-nav__link">
-    Verify SFTP configuration
+  <a href="#verify-ftp-configuration" title="Verify FTP configuration" class="md-nav__link">
+    Verify FTP configuration
   </a>
   
 </li>
@@ -1064,8 +1076,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-sftp" title="Setup SFTP" class="md-nav__link">
-    Setup SFTP
+  <a href="#setup-ftp" title="Setup FTP" class="md-nav__link">
+    Setup FTP
   </a>
   
     <nav class="md-nav">
@@ -1091,8 +1103,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-sftp-configuration" title="Verify SFTP configuration" class="md-nav__link">
-    Verify SFTP configuration
+  <a href="#verify-ftp-configuration" title="Verify FTP configuration" class="md-nav__link">
+    Verify FTP configuration
   </a>
   
 </li>
@@ -1167,14 +1179,14 @@ $ ./apitest -help
 <li><a href="https://api.moov.io/#operation/addReceivers">Setup a Receiver</a></li>
 <li>Then you can <a href="https://api.moov.io/#operation/addTransfer">create a transaction</a> between these two FIs</li>
 </ol>
-<h2 id="setup-sftp">Setup SFTP<a class="headerlink" href="#setup-sftp" title="Permanent link">&para;</a></h2>
-<p>PayGate currently requires the SFTP configuration to be manually setup in the database. <a href="https://github.com/moov-io/paygate/blob/master/docs/ach.md#sftp-uploads-of-merged-ach-files">See here</a> for more information.</p>
+<h2 id="setup-ftp">Setup FTP<a class="headerlink" href="#setup-ftp" title="Permanent link">&para;</a></h2>
+<p>PayGate currently requires the FTP configuration to be manually setup in the database. <a href="https://github.com/moov-io/paygate/blob/master/docs/ach.md#uploads-of-merged-ach-files">See here</a> for more information.</p>
 <h3 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h3>
-<p>MySQL is a database which applications or developers connect to over the network. This means to configure paygate's SFTP and file upload configuration a developer needs to connect to the database.</p>
+<p>MySQL is a database which applications or developers connect to over the network. This means to configure paygate's FTP and file upload configuration a developer needs to connect to the database.</p>
 <div class="codehilite"><pre><span></span># Connect using host, username and password for your setup
 $ mysql -h localhost:3306 -u paygate
 
-&gt; INSERT INTO sftp_configs (routing_number, hostname, username, password) VALUES (&#39;000000000&#39;, &#39;localhost:22&#39;, &#39;myusername&#39;, &#39;mypassword&#39;);
+&gt; INSERT INTO ftp_configs (routing_number, hostname, username, password) VALUES (&#39;000000000&#39;, &#39;localhost:22&#39;, &#39;myusername&#39;, &#39;mypassword&#39;);
 
 &gt; INSERT INTO cutoff_times (routing_number, cutoff, location) VALUES (&#39;000000000&#39;, &#39;1700&#39;, &#39;America/New_York&#39;);
 
@@ -1204,18 +1216,18 @@ $ mysql -h localhost:3306 -u paygate
       - auth
 </pre></div>
 This will attach the <code>/data</code> volume within the image to the same directory in which the <code>docker-compose.yml</code> file resides.</p>
-<p>To setup SFTP, run the following commands on the now exposed <code>paygate.db</code> file, changing the dummy string values below:
+<p>To setup FTP, run the following commands on the now exposed <code>paygate.db</code> file, changing the dummy string values below:
 <div class="codehilite"><pre><span></span># Setup credentials for sqlite3
-$ sqlite3 paygate.db &quot;INSERT INTO sftp_configs (routing_number, hostname, username, password) VALUES (&#39;000000000&#39;, &#39;localhost:22&#39;, &#39;myusername&#39;, &#39;mypassword&#39;);&quot;
+$ sqlite3 paygate.db &quot;INSERT INTO ftp_configs (routing_number, hostname, username, password) VALUES (&#39;000000000&#39;, &#39;localhost:22&#39;, &#39;myusername&#39;, &#39;mypassword&#39;);&quot;
 
 # Setup cutoff times
 $ sqlite3 paygate.db &quot;INSERT INTO cutoff_times (routing_number, cutoff, location) VALUES (&#39;000000000&#39;, &#39;1700&#39;, &#39;America/New_York&#39;);&quot;
 
-# Setup sftp directories
+# Setup ftp directories
 $ sqlite3 paygate.db &quot;INSERT INTO file_transfer_configs (routing_number, inbound_path, outbound_path, return_path) VALUES (&#39;000000000&#39;, &#39;/inbound&#39;, &#39;/outbound&#39;, &#39;/returns&#39;);&quot;
 </pre></div>
 The command may need to be ran with elevated privileges, using <code>sudo</code> or another method. The database will also need to be writable.</p>
-<h2 id="verify-sftp-configuration">Verify SFTP configuration<a class="headerlink" href="#verify-sftp-configuration" title="Permanent link">&para;</a></h2>
+<h2 id="verify-ftp-configuration">Verify FTP configuration<a class="headerlink" href="#verify-ftp-configuration" title="Permanent link">&para;</a></h2>
 <p>Paygaet's admin HTTP interface offers endpoints to check these values were setup (default on port <code>:9092</code>).</p>
 <div class="codehilite"><pre><span></span>curl -s -X GET http://localhost:9092/configs/uploads | jq .
 {
@@ -1226,7 +1238,7 @@ The command may need to be ran with elevated privileges, using <code>sudo</code>
       &quot;Location&quot;: &quot;America/New_York&quot;
     }
   ],
-  &quot;sftpConfigs&quot;: [
+  &quot;ftpConfigs&quot;: [
     {
       &quot;RoutingNumber&quot;: &quot;121042882&quot;,
       &quot;Hostname&quot;: &quot;localhost:2121&quot;,

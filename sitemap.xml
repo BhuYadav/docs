@@ -2,107 +2,112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://docs.moov.io/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/ach/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/ach/balanced-offset/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/ach/create-file/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/ach/merging-files/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://docs.moov.io/ach/segment-file/</loc>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/ach/intro/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/ach/file-structure/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/ach/sec-codes-table/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/fed/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/fed/file-structure/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/icl/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/icl/file-structure/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/ofac/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/ofac/file-structure/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/paygate/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/wire/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/wire/fedWireMessage-Structure/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/wire/DateMMDD/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/wire/TimeHHMM/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/wire/address/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.moov.io/wire/remittanceData/</loc>
-     <lastmod>2019-07-16</lastmod>
+     <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
