@@ -21,6 +21,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://docs.moov.io/ach/flatten-batches/</loc>
+     <lastmod>2019-09-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://docs.moov.io/ach/merging-files/</loc>
      <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
